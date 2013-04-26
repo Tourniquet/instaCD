@@ -8,8 +8,8 @@ I use to ssh into servers a lot, but i usually dwell in the same few folders dee
 
 ## Requirements
 
-Perl
-Bash
+* Perl
+* Bash
 
 ## Installation
 
@@ -17,11 +17,18 @@ Add the following lines to your .bashrc
 
 	#if this is not an interactive shell, skip this
 	[ -z "$PS1" ] && return
-	alias icd="source /install/path/instaCD.bash"
-	icd
+	alias instaCD="source /install/path/instaCD.bash"
+	instaCD
 
-Create a ~/.instaCD in the following format
-(keypress) (directory to go to) e.g.
+Create a ~/.instaCD in the following format or use the `add` command described below
 
+	(keypress) (directory to go to)
 	a /var/www/myProjectFoo/src
-	b /opt/awesomeTool/whatever
+	w /opt/awesomeTool/whatever
+
+## Usage
+	`instaCD` opens your quick jump list
+
+	`instaCD add x` adds your current directory for the key `x`
+
+	`instaCD add x /var/foo` adds /var/foo for the key `x`

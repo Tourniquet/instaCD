@@ -1,1 +1,3 @@
-Command to add current directory to ~/.instaCD
+Command to remove hotkey from ~/.instaCD
+brief switch for only showing pressable hotkeys and no paths - eg 'instaCD: [abhnv]'
+quiet switch for making the script less talky

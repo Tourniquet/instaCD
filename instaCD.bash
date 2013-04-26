@@ -7,10 +7,11 @@ if [[ "$scriptDir" = "instaCD.bash/" ]]; then
 	scriptDir="";
 fi
 
-dir=`perl ${scriptDir}instaCD.pl "$scriptDir"`
+dir=`perl ${scriptDir}instaCD.pl "$scriptDir" "$@"`
 if [ -z $dir ]; then
-	echo "nuffin"
+	true
+	#echo "nowhere to go"
 else
-	echo "going to $dir"
+	#echo "going to $dir"
 	cd $dir
 fi
