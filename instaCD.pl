@@ -36,17 +36,24 @@ if ( defined $ARGV[1] ) {
 
 		add($ARGV[2], $dir);
 
+	} elsif ( length($ARGV[1]) == 1 ){
+		my $choice = $ARGV[1];
+		my $paths = getPaths();
+		if (exists $paths->{$choice}){
+			print $paths->{$choice};
+		} else {
+			print STDERR "$choice is no shortcut\n";
+		}
+		exit;
 	} else {
 		print STDERR "Unknown command ".$ARGV[1]."\n";
 	}
 
 } else {
-	askDir();
+	askPath();
 }
 
-
-sub askDir{
-
+sub getPaths{
 	my $paths = {};
 
 	open my $fp, "<", glob($storage) or die "Could not open $storage. ($!) You might want to use `instaCD add HOTKEY` to define some directories.\n";
@@ -56,6 +63,16 @@ sub askDir{
 		my $path = substr($_, 2);
 		chomp $path;
 		$paths->{$key} = $path;
+	}
+
+	return $paths;
+}
+
+
+sub askPath{
+	my $paths = getPaths();
+
+	while( my ($key, $path) = each %{$paths}){
 		print STDERR "[$key] $path\n";
 	}
 
@@ -69,12 +86,12 @@ sub askDir{
 }
 
 sub add{
-	my $hotkey = shift;
-	my $dir = shift;
+	my $key = shift;
+	my $path = shift;
 
-	print STDERR "adding [$hotkey] $dir\n";
+	print STDERR "adding [$key] $path\n";
 	open my $fp, ">>", glob($storage) or die "Could not open $storage. ($!)";
-	print $fp "$hotkey $dir\n";
+	print $fp "$key $path\n";
 	close $fp;
 
 }

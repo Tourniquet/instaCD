@@ -9,7 +9,7 @@ I use to ssh into servers a lot, but i usually dwell in the same few folders dee
 ## Requirements
 
 * Perl
-* Bash
+* Bash or zsh
 
 ## Installation
 
@@ -26,8 +26,14 @@ Create a ~/.instaCD in the following format or use the `add` command described b
 	a /var/www/myProjectFoo/src
 	w /opt/awesomeTool/whatever
 
+## Hints
+
+I aliased instaCD to `g`. This allows super quick folder switching for all the lazy typers.
+
 ## Usage
 	`instaCD` opens your quick jump list
+
+	`instaCD x` cd's to the folder for the key `x`
 
 	`instaCD add x` adds your current directory for the key `x`
 
