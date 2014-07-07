@@ -1,7 +1,8 @@
 # InstaCD
 
-A perl script for easily jumping to a directory from a predefined list,
-	roughly similar to Pentadactyl's quickmarks
+A perl script for easily jumping to a directory from a predefined list, roughly 
+similar to Pentadactyl's quickmarks and basically a pretty lame static version 
+of autojump.
 
 ## Why?
 
